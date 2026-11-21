@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "kaleidoscope_backportedcookery:item/copper_kitchen_knife"
+  }
+}

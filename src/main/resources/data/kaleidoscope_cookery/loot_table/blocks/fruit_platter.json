@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "kaleidoscope_cookery:fruit_platter",
+              "conditions": [
+                {
+                  "condition": "minecraft:block_state_property",
+                  "block": "kaleidoscope_cookery:fruit_platter",
+                  "properties": {
+                    "bites": "0"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:item",
+              "name": "minecraft:bowl"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "kaleidoscope_cookery:blocks/fruit_platter"
+}

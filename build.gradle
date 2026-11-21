@@ -1,0 +1,139 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.neoforged.gradle.userdev' version '7.0.170'
+}
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+version = mod_version
+group = mod_group_id
+
+repositories {
+    mavenLocal()
+
+    // Kaleidoscope Cookery 1.6.0 (NeoForge, Minecraft 1.21.1) via Modrinth Maven.
+    // It is a REQUIRED dependency: this addon extends its KitchenKnifeItem and
+    // registers dispenser behaviour for the copper knife.
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = 'Modrinth'
+                url = 'https://api.modrinth.com/maven'
+            }
+        }
+        filter {
+            includeGroup 'maven.modrinth'
+        }
+    }
+}
+
+base {
+    archivesName = mod_id
+}
+
+// Minecraft 1.20.5+ ships Java 21.
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+        modSource project.sourceSets.main
+    }
+
+    client {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    server {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+        argument '--nogui'
+    }
+
+    gameTestServer {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
+
+    data {
+        arguments.addAll '--mod', project.mod_id, '--all',
+                '--output', file('src/generated/resources/').getAbsolutePath(),
+                '--existing', file('src/main/resources/').getAbsolutePath()
+    }
+}
+
+sourceSets.main.resources {
+    srcDir 'src/generated/resources'
+}
+
+configurations {
+    // Runtime-only dependencies that should NOT be published as transitive deps.
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:${neo_version}"
+
+    // Required parent mod. Version id g8w0b2ly == 1.6.0-neoforge+mc1.21.1.
+    // If Modrinth Maven is unavailable, drop the jar into ./libs and replace the
+    // next line with: implementation files("libs/kaleidoscopecookery-1.6.0-neoforge+mc1.21.1.jar")
+    implementation "${cookery_maven_coordinate}"
+
+    // Runtime-only: Vanilla Backport provides minecraft:shelf_mushroom and
+    // minecraft:straw_bed on 1.21.1. It is a hard runtime dependency declared in
+    // neoforge.mods.toml, but this addon does not compile against its classes.
+    runtimeOnly "${vanillabackport_maven_coordinate}"
+    // Vanilla Backport's own required library, only needed to launch the dev runtime.
+    runtimeOnly "${platform_maven_coordinate}"
+}
+
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version       : minecraft_version,
+            minecraft_version_range : minecraft_version_range,
+            neo_version             : neo_version,
+            neo_version_range       : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                  : mod_id,
+            mod_name                : mod_name,
+            mod_license             : mod_license,
+            mod_version             : mod_version,
+            mod_authors             : mod_authors,
+            mod_description         : mod_description,
+            cookery_mod_id          : cookery_mod_id,
+            cookery_version_range  : cookery_version_range,
+            vanillabackport_mod_id  : vanillabackport_mod_id,
+            vanillabackport_version_range : vanillabackport_version_range
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+publishing {
+    publications {
+        register('mavenJava', MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven { url "file://${project.projectDir}/repo" }
+    }
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

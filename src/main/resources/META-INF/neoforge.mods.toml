@@ -1,0 +1,48 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+logoFile="assets/icon.png"
+description='''${mod_description}'''
+
+# ---------------------------------------------------------------------------
+# Hard dependencies. Kaleidoscope Cookery MUST be present: this addon registers
+# its content into the kaleidoscope_cookery namespace, extends the parent mod's
+# KitchenKnifeItem / BowlFoodOnlyItem / FoodBiteBlock classes and reuses its
+# chopping-board dispenser behaviour.
+# ---------------------------------------------------------------------------
+[[dependencies.${mod_id}]]
+modId="neoforge"
+type="required"
+versionRange="${neo_version_range}"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="${cookery_mod_id}"
+type="required"
+versionRange="${cookery_version_range}"
+ordering="AFTER"
+side="BOTH"
+
+# Vanilla Backport supplies the 1.21.1 versions of minecraft:shelf_mushroom
+# (used by the shelf mushroom pot soup recipe) and minecraft:straw_bed
+# (used as the collision-shape reference for the straw bed).
+[[dependencies.${mod_id}]]
+modId="${vanillabackport_mod_id}"
+type="required"
+versionRange="${vanillabackport_version_range}"
+ordering="AFTER"
+side="BOTH"

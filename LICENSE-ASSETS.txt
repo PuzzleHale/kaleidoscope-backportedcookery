@@ -1,0 +1,53 @@
+Asset attribution for Kaleidoscope: Backported Cookery
+=======================================================
+
+The following resource files are derived from the assets of
+"Kaleidoscope Cookery / 森罗物语：厨房" and its unofficial Fabric continuation
+"Kaleidoscope Cookery Refabricated / 森罗物语：厨房——重织" (MC 26.3, 1.6.0.1).
+Original art authors: 药水棒冰 and the Kaleidoscope Official Production Team.
+
+Item textures
+  assets/kaleidoscope_backportedcookery/textures/item/*.png
+  (copper_kitchen_knife, raw/cooked_donkey_meat, the rice bowls including
+   delicious_egg_fried_rice, country-style vegetables, soups, braised_fish,
+   yakitori, fruit_platter and shelf_mushroom_pot_soup)
+
+Block textures
+  assets/kaleidoscope_backportedcookery/textures/block/straw_bed.png
+  assets/kaleidoscope_backportedcookery/textures/block/straw_bed_particle.png
+  assets/kaleidoscope_backportedcookery/textures/block/shelf_mushroom_pot_soup.png
+
+Block / item models and block states
+  assets/kaleidoscope_backportedcookery/models/block/straw_bed_head.json
+  assets/kaleidoscope_backportedcookery/models/block/straw_bed_foot.json
+  assets/kaleidoscope_backportedcookery/models/block/straw_bed_full.json
+  assets/kaleidoscope_backportedcookery/models/block/food/**/*.json
+  assets/kaleidoscope_cookery/blockstates/*.json
+  assets/kaleidoscope_cookery/models/item/*.json
+
+  straw_bed_full.json is a merged derivative of the head and foot models
+  (the foot half is rotated and translated to form one complete bed) used only
+  by the item model. The shelf-mushroom pot-soup models were converted from the
+  26.3 Blockbench format (multi-axis x/y/z Euler rotations) to the 1.21.1
+  single-axis format; the geometry, UVs and textures are unchanged apart from
+  that conversion.
+
+These assets are licensed under Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+They are redistributed here with attribution, for non-commercial use, and this
+addon's asset derivatives are offered under the same license.
+
+The straw-bed item now uses the 3D straw-bed head block model with the original
+26.3 display transforms; no separate flat 16x16 item sprite is shipped.
+
+Source code in src/main/java is offered under the BSD 3-Clause License, matching
+the dual-licensing scheme of the upstream project.
+
+Vanilla Backport and Platform are runtime dependencies only. No code or assets
+from those mods are redistributed in this jar. Their licenses apply to their own
+downloads.
+
+This is an unofficial fan-made compatibility/backport addon. It is not
+affiliated with, endorsed by, or maintained by the original authors.

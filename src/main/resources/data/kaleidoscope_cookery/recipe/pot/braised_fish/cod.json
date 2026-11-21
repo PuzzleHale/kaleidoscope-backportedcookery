@@ -1,0 +1,21 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_cod"
+    },
+    {
+      "tag": "c:foods/raw_cod"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope_cookery:braised_fish"
+  },
+  "carrier": {
+    "item": "minecraft:bowl"
+  }
+}

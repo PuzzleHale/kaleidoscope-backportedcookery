@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "kaleidoscope_cookery:suspicious_stir_fry"
+    },
+    {
+      "item": "kaleidoscope_cookery:cooked_rice"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope_cookery:suspicious_stir_fry_rice_bowl"
+  }
+}

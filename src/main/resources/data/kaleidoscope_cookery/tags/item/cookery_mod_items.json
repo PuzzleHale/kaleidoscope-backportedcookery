@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    "kaleidoscope_cookery:copper_kitchen_knife",
+    "kaleidoscope_cookery:straw_bed",
+    "kaleidoscope_cookery:raw_donkey_meat",
+    "kaleidoscope_cookery:cooked_donkey_meat",
+    "kaleidoscope_cookery:stir_fried_beef_offal",
+    "kaleidoscope_cookery:stir_fried_beef_offal_rice_bowl",
+    "kaleidoscope_cookery:country_style_mixed_vegetables",
+    "kaleidoscope_cookery:braised_fish_rice_bowl",
+    "kaleidoscope_cookery:spicy_chicken_rice_bowl",
+    "kaleidoscope_cookery:suspicious_stir_fry_rice_bowl",
+    "kaleidoscope_cookery:tomato_beef_brisket_soup",
+    "kaleidoscope_cookery:donkey_soup",
+    "kaleidoscope_cookery:braised_fish",
+    "kaleidoscope_cookery:yakitori",
+    "kaleidoscope_cookery:fruit_platter",
+    "kaleidoscope_cookery:shelf_mushroom_pot_soup"
+  ]
+}

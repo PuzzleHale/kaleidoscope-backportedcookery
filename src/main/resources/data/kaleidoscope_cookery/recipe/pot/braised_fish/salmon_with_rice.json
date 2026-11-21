@@ -1,0 +1,21 @@
+{
+  "type": "kaleidoscope_cookery:pot",
+  "ingredients": [
+    {
+      "tag": "c:foods/raw_salmon"
+    },
+    {
+      "tag": "c:foods/raw_salmon"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope_cookery:braised_fish_rice_bowl"
+  },
+  "carrier": {
+    "tag": "c:foods/cooked_rice"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "kaleidoscope_backportedcookery:item/suspicious_stir_fry_rice_bowl"
+  }
+}

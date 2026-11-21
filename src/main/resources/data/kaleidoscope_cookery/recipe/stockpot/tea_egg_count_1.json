@@ -1,0 +1,19 @@
+{
+  "type": "kaleidoscope_cookery:stockpot",
+  "finished_texture": "kaleidoscope_cookery:stockpot/default_finished_bobo",
+  "carrier": {
+    "item": "kaleidoscope_cookery:kitchen_shovel"
+  },
+  "ingredients": [
+    {
+      "item": "kaleidoscope_cookery:dried_tea_leaves"
+    },
+    {
+      "tag": "kaleidoscope_cookery:delicious_egg_fried_rice_eggs"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "kaleidoscope_cookery:tea_egg"
+  }
+}
