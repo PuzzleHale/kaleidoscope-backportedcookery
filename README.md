@@ -1,5 +1,6 @@
 # Kaleidoscope: Backported Cookery
 
+## ~~AI写的README，不要在意qwq~~
 森罗物语附属模组。把《森罗物语：厨房——重织》（Kaleidoscope Cookery Refabricated，MC 26.3 / 1.6.x）中的 **铜菜刀**、**稻草床（Straw Bed）**、**12 种食物**、**极品蛋炒饭** 与 **层孔菇瓦罐汤** 回移植到 **NeoForge 1.21.1**。
 
 - 模组 ID：`kaleidoscope_backportedcookery`
